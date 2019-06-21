@@ -10,4 +10,8 @@ node_modules/
 .vscode
 AUTHORS.md
 .nyc_output
-coverage
+coverage/
+.codecov
+.codecov.yml
+build/
+docs/
