@@ -8,11 +8,11 @@ const two =  async (req, res) => {
     req.foo = '...needs better demo 😔';
 }
 
-microTrouter()
-  .use(one, two)
-  .get('/users/:id', async (req, res) => {
-    console.log(`~> Hello, ${req.hello}`);
-    res.end(`User: ${req.params.id}`);
-})
-
-module.exports = microTrouter().handler
+module.exports = microTrouter()
+    .use(one, two)
+    .get('/users/:id', async (req, res) => {
+        console.log(`~> Hello, ${req.hello}`);
+        //res.end(`User: ${req.params.id}`);
+        return `User: ${req.params.id}`
+    })
+    .handler

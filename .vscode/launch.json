@@ -1,11 +1,13 @@
 {
     "version": "0.2.0",
     "configurations": [
+        
+
         {
             "name": "Debug Mocha Tests",
             "type": "node",
             "request": "attach",
-            "port": 9229,
+            "port": 9230,
             "protocol": "inspector",
             "timeout": 30000,
             "stopOnEntry": false
