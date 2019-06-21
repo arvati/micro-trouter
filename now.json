@@ -1,0 +1,25 @@
+{
+    "version": 2,
+    "name": "micro-trouter",
+    "env": {
+        "COOKIESECRET": "@cookie_secret"
+    },
+    "regions": ["all"],
+    "public": true,
+    "github": {
+        "enabled": true,
+        "autoAlias": true,
+        "silent": false,
+        "autoJobCancelation": true
+    },
+    "builds": [
+        { "src": "/public/*.md", "use": "@now/md"},
+        { "src": "/test/example.js", "use": "@now/node" },
+        { "src": "/public/favicon.ico", "use": "@now/static" }
+    ],
+    "routes": [
+        { "src": "/micro/(.*)", "dest": "/test/example.js" },
+        { "src": "/favicon.ico$", "dest": "/public/favicon.ico" },
+        { "src": "(.*)", "dest": "/public/"}
+    ]
+}

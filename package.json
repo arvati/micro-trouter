@@ -1,0 +1,83 @@
+{
+  "name": "micro-trouter",
+  "version": "0.0.1",
+  "description": "Fast Router alternative for micro services using same router used in polka, trouter",
+  "keywords": [
+    "micro",
+    "router",
+    "polka",
+    "http"
+  ],
+  "private": false,
+  "homepage": "https://arvati.github.com/micro-trouter",
+  "bugs": "https://github.com/arvati/micro-trouter/issues",
+  "main": "/lib/index.js",
+  "scripts": {
+    "docs": "node build/docs.js",
+    "test": "NODE_ENV=test nyc --silent --clean node build/test.js",
+    "cover": "nyc report",
+    "postcover": "curl -s https://codecov.io/bash > .codecov && chmod +x .codecov && ./.codecov -X gcov,search,fix,coveragepy,xcode -F unittests -c -f './coverage/lcov.info'",
+    "serve": "node --inspect node_modules/.bin/micro-dev test/example.js",
+    "dev": "now dev",
+    "deploy": "now",
+    "git": "git add . && git commit -m",
+    "postgit": "git push --all"
+  },
+  "repository": "github:arvati/micro-trouter",
+  "author": "Ademar Arvati Filho (https://github.com/arvati)",
+  "license": "MIT",
+  "dependencies": {
+    "@polka/url": "^0.5.0",
+    "micro-compose": "^0.0.3",
+    "querystring": "^0.2.0",
+    "trouter": "^3.0.2"
+  },
+  "peerDependencies": {
+    "micro": "^9.1.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.0.0",
+    "eslint": "^5.16.0",
+    "micro": "^9.1.0",
+    "micro-dev": "^3.0.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "supertest": "^4.0.2"
+  },
+  "engines": {
+    "node": ">7.10.1"
+  },
+  "files": [
+    "./lib/*.js",
+    "./docs/*.md",
+    "./AUTHORS.md",
+    "./test/*.js",
+    "./example/*.js",
+    "./build/*.js"
+  ],
+  "directories": {
+    "doc": "./docs",
+    "lib": "./lib",
+    "test": "./test",
+    "example": "./example"
+  },
+  "nyc": {
+    "all": false,
+    "check-coverage": false,
+    "reporter": [
+      "lcovonly",
+      "text-summary"
+    ],
+    "report-dir": "./coverage",
+    "temp-dir": "./.nyc_output",
+    "include": [
+      "lib/**/*.js"
+    ],
+    "exclude": [
+      "build/**/*",
+      "docs/**/*",
+      "coverage/**",
+      "test/**"
+    ]
+  }
+}

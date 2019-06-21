@@ -1,0 +1,43 @@
+# https://kramdown.gettalong.org/converter/html.html
+markdown: kramdown
+remote_theme: pmarsceill/just-the-docs # https://github.com/pmarsceill/just-the-docs/
+title: micro-trouter
+description: Fast Router alternative for micro services using same router used in polka, trouter
+baseurl: "/micro-trouter/"
+url: "https://corp.eng.br" 
+permalink: pretty
+color_scheme: nil # nil or dark
+exclude: ["*.js", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "Rakefile"]
+search_enabled: false
+aux_links:
+  "micro-trouter on GitHub":
+    - "//github.com/arvati/micro-trouter"
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+      nav_exclude: false
+      search_exclude: true
+      has_toc: true
+
+ga_tracking: UA-18418059-2
+
+disqus:
+    shortname: arvati
+
+plugins:
+ - jekyll-seo-tag
+# - jekyll-feed
+# - jekyll-sitemap
+# - jekyll-mentions
+# - jemoji
+# - jekyll-redirect-from
+# - jekyll-avatar
+# - jekyll-include-cache
+
+# Local server with
+# cd docs
+# bundle exec jekyll serve

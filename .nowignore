@@ -1,0 +1,13 @@
+.gitignore
+.env
+test/.env
+test/mocha.opts
+test/test.js
+README.md
+LICENSE.md
+yarn.lock
+node_modules/
+.vscode
+AUTHORS.md
+.nyc_output
+coverage
