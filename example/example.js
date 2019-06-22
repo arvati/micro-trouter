@@ -1,6 +1,12 @@
 const microTrouter = require('../lib');
 
+const one =  async (req, res) => {
+    req.hello = 'world';
+}
 
+const two =  async (req, res) => {
+    req.foo = '...needs better demo 😔';
+}
 
 const first = next => async (request, response, ...args) => {
     request.hello = 'world';
@@ -15,10 +21,16 @@ const second = next => (request, response, ...args) => {
 };
 
 module.exports = microTrouter()
-    .use(first, second)
+    .use(one, two)
+    .compose(first, second)
     .get('/users/:id', async (request, response) => {
         console.log(`~> Hello, ${request.hello}`);
         //res.end(`User: ${req.params.id}`);
         return `User: ${request.params.id}`
     })
-    .compose
+    .get('/users/:id', async (request, response) => {
+        console.log(`~> Really, ${request.foo}`);
+        //res.end(`User: ${req.params.id}`);
+        return `User: ${request.params.id}`
+    })
+    .handler
