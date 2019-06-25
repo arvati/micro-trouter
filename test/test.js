@@ -38,7 +38,7 @@ describe('General use of micro-trouter', async () => {
         });
 
         it('Route with parameter - /users/123', (done) => {
-            request.agent(micro(this.microtrouter.handler))
+            request.agent(micro(this.microtrouter.handle))
                 .get('/users/123')
                 .expect(200)
                 .end(function(err, res) {
@@ -48,7 +48,7 @@ describe('General use of micro-trouter', async () => {
                   });
         })
         it('Route with parameter - /demos/456', (done) => {
-            request.agent(micro(this.microtrouter.handler))
+            request.agent(micro(this.microtrouter.handle))
                 .get('/demos/456')
                 .expect(200)
                 .end(function(err, res) {
