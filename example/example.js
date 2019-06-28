@@ -33,4 +33,4 @@ module.exports = microTrouter()
         //res.end(`User: ${req.params.id}`);
         return `User: ${request.params.id}`
     })
-    .handler
+    .handle
